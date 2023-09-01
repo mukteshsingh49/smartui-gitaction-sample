@@ -13,8 +13,8 @@ jobs:
       - run: npm run build
       - name: Running SmartUI CLI Tests
         run: |
-            npm i @lambdatest/smartui-cli
-smartui capture url.json --config smartui-web.json
-
-     env:
-   PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          npm i -g @lambdatest/smartui-cli
+          smartui capture url.json --config smartui-web.json
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+ 
