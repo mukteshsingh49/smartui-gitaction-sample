@@ -1,0 +1,22 @@
+name: SmartrUI CLI Tests 
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
+      - run: cp ./.env.example ./.env
+      - run: npm i
+      - run: npm run build
+      - name: Running SmartUI CLI Tests
+        run: |
+          npm install -g @LambdaTest/smartui-cli
+          smartui capture urls.json --config smartui-web.json
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
