@@ -14,8 +14,6 @@ jobs:
           node-version: '18'
           node-version-file: '.nvmrc'  # Specify the Node.js version file
 
-      - run: cp ./.env.example ./.env  # Copy the .env.example to .env
-
       - run: npm i
       - run: npm run build
 
