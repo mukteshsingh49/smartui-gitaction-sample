@@ -13,7 +13,6 @@ jobs:
         with:
           node-version: '18'
           node-version-file: '.nvmrc'  # Specify the Node.js version file
-
       - run: npm i
       - run: npm run build
 
